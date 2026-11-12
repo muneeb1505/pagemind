@@ -1,0 +1,17 @@
+streamlit
+langchain
+langchain-community
+langchain-chroma
+langchain-huggingface
+langchain-core
+langchain-classic
+langchain-text-splitters
+langchain-groq
+langchain-google-genai
+langchain-ollama
+chromadb
+pypdf
+sentence-transformers
+python-multipart
+huggingface_hub
+python-doten
