@@ -63,7 +63,7 @@ def get_llm():
     """
     Pick the chat model from the LLM_PROVIDER env var.
 
-    groq         -> free tier, runs Llama 3.3 70B (default)
+    groq         -> free tier, runs GPT-OSS 120B (default)
     google       -> free tier, Gemini
     ollama       -> fully local, no key needed
     huggingface  -> needs paid HF Inference Providers credits
@@ -73,10 +73,16 @@ def get_llm():
 
     if provider == "groq":
         from langchain_groq import ChatGroq
+        model_name = model_name or "openai/gpt-oss-120b"
+        kwargs = {}
+        if "gpt-oss" in model_name:
+            # Reasoning model: keep thinking short so answers aren't cut off
+            kwargs["model_kwargs"] = {"reasoning_effort": "low"}
         return ChatGroq(
-            model=model_name or "llama-3.3-70b-versatile",
+            model=model_name,
             temperature=0.1,
-            max_tokens=512
+            max_tokens=1024,
+            **kwargs
         )
 
     if provider == "google":
