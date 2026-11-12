@@ -7,11 +7,7 @@ langchain-core
 langchain-classic
 langchain-text-splitters
 langchain-groq
-langchain-google-genai
-langchain-ollama
 chromadb
 pypdf
 sentence-transformers
-python-multipart
-huggingface_hub
-python-doten
+python-dotenv
